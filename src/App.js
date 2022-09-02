@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { Routes, Route, Link } from "react-router-dom";
+import ContactList from "./components/ContactList/ContactList";
+import InputContact from "./components/InputContact/InputContact";
+import NavBar from "./components/NavBar/NavBar";
 function App() {
+  // const newContact = () => {
+  //   console.log("clicked");
+  //   <InputContact />;
+  // };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<NavBar />}>
+        <Route path="InputContact" element={<InputContact />} />
+        <Route index element={<ContactList />} />
+      </Route>
+    </Routes>
   );
 }
 
